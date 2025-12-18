@@ -90,3 +90,60 @@ fun HomeScreen(
         )
     }
 }
+
+@Composable
+fun HomeBody(
+    statusUiSiswa: StatusUiSiswa,
+    modifier: Modifier = Modifier,
+    retryAction: () -> Unit,
+    onSiswaClick: (Int) -> Unit
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
+        when (statusUiSiswa) {
+            is StatusUiSiswa.Loading -> LoadingScreen(modifier = Modifier.fillMaxSize())
+
+            is StatusUiSiswa.Success -> {
+                    DaftarSiswa(
+                        itemSiswa = statusUiSiswa.siswa,
+                        onSiswaClick = { siswa -> onSiswaClick(siswa.id) },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+            }
+
+            is StatusUiSiswa.Error -> ErrorScreen(
+                retryAction = retryAction,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+    }
+}
+
+@Composable
+fun LoadingScreen(
+    modifier: Modifier= Modifier
+) {
+    Image(
+        modifier = modifier.size(200.dp),
+        painter = painterResource(R.drawable.image),
+        contentDescription = null
+    )
+}
+
+@Composable
+fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier= Modifier){
+    Column (
+        modifier=modifier,
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        Text(text = stringResource(R.string.gagal), modifier = Modifier
+            .padding(16.dp))
+        Button(onClick = retryAction) {
+            Text(stringResource(R.string.rentry))
+
+        }
+    }
+}
