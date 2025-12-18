@@ -3,6 +3,9 @@ NIM    = 20230140203 <br>
 kelas  = E
 
 ## DOKUMENTASI
+Database XAMPP
+<img width="1895" height="1115" alt="image" src="https://github.com/user-attachments/assets/01b6fc3d-1ea9-4919-9bdf-722e4fc3c1bc" />
+
 |Deskripsi|Dokumentasi|
 |---|---|
 |Halaman Home|<img width="1209" height="2553" alt="HalamanHome " src="https://github.com/user-attachments/assets/fdbba842-bcb9-4578-83c2-ad161ae43221" />|
