@@ -130,3 +130,46 @@ private fun BodyDetailDataSiswa(
         }
     }
 }
+
+@Composable
+fun DetailDataSiswa(
+    siswa: DataSiswa,
+    modifier: Modifier = Modifier
+){
+    Card(
+        modifier= Modifier
+            .fillMaxWidth()
+            .padding(dimensionResource(R.dimen.padding_medium)),
+    ){
+        Column(
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium))
+        ) {
+            BarisDetailData(
+                labelResID = R.string.nama1,
+                itemDetail = siswa.nama,
+                modifier = Modifier.padding(horizontal = dimensionResource(R.dimen.padding_medium))
+            )
+            BarisDetailData(
+                labelResID = R.string.alamat1,
+                itemDetail = siswa.alamat,
+                modifier = Modifier.padding(horizontal = dimensionResource(R.dimen.padding_medium))
+            )
+            BarisDetailData(
+                labelResID = R.string.telpon1,
+                itemDetail = siswa.telpon,
+                modifier = Modifier.padding(horizontal = dimensionResource(R.dimen.padding_medium))
+            )
+        }
+    }
+}
+
+@Composable
+private fun BarisDetailData(
+    @StringRes labelResID :Int, itemDetail:String, modifier: Modifier= Modifier
+){
+    Row(modifier=modifier){
+        Text(stringResource(labelResID))
+        Spacer(modifier = Modifier.weight(1f))
+            Text(text = itemDetail, fontWeight = FontWeight.Bold)
+    }
+}
