@@ -14,7 +14,7 @@ interface ContainerApp {
 }
 
 class DefaultContainerApp: ContainerApp{
-    private val baseUrl= "http://10.49.0.73/umyTI/"
+    private val baseUrl= "http://10.0.2.2/umyTI/"
     val logging = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
@@ -40,7 +40,6 @@ class DefaultContainerApp: ContainerApp{
     override val repositoryDataSiswa: RepositoryDataSiswa  by lazy {
         JaringanRepositoryDataSiswa(retrofitService)
     }
-
 }
 class AplikasiDataSiswa: Application(){
     lateinit var container : ContainerApp
