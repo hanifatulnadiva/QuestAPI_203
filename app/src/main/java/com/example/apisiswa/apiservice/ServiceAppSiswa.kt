@@ -2,8 +2,11 @@ package com.example.apisiswa.apiservice
 
 import com.example.apisiswa.modeldata.DataSiswa
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Query
 
 interface ServiceAppSiswa {
     @GET("bacateman.php")
@@ -11,4 +14,13 @@ interface ServiceAppSiswa {
 
     @POST("insertTM.php")
     suspend fun postSiswa(@Body dataSiswa: DataSiswa): retrofit2.Response<Void>
+
+    @GET("baca1Teman.php/{id}")
+    suspend fun getStatusSiswa (@Query("id") id:Int): DataSiswa
+
+    @PUT("editTm.php/${"id"}")
+    suspend fun editSatuSiswa(@Query("id")id:Int, @Body dataSiswa: DataSiswa):retrofit2.Response<Void>
+
+    @DELETE("deleteTM.php/${"id"}")
+    suspend fun hapusSatuSiswa(@Query("id")id:Int):retrofit2.Response<Void>
 }
