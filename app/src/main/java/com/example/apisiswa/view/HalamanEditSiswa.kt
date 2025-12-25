@@ -23,7 +23,14 @@ fun HalamanEditSiswa (
     viewModel: EditVM= viewModel(factory = PenyediaViewModel.Factory)
 ){
     Scaffold (
-        
+        topBar = {
+            SiswaTopAppBar(
+                title = stringResource(DestinasiEdit.titleRes),
+                canNavigateBack = true,
+                navigateUp = onNavigateUp
+            )
+        },
+        modifier = modifier
     ){
 
     }
