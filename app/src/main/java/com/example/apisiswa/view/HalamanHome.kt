@@ -52,7 +52,7 @@ import com.example.apisiswa.viewmodel.StatusUiSiswa
 fun HomeScreen(
     navigateToItemEntry:()->Unit,
     modifier:Modifier= Modifier,
-    navigateToItemUpdate:(Int)->Unit,
+    navigateToItemDetail:(Int)->Unit,
     viewModel: HomeViewModel= viewModel(factory = PenyediaViewModel.Factory)
 ){
     LaunchedEffect (Unit) {
@@ -82,7 +82,7 @@ fun HomeScreen(
         }) { innerPadding ->
         HomeBody(
             statusUiSiswa =viewModel.listSiswa,
-            onSiswaClick = navigateToItemUpdate,
+            onSiswaClick = navigateToItemDetail,
             retryAction=viewModel::loadSiswa,
             modifier = Modifier
                 .padding(innerPadding)
