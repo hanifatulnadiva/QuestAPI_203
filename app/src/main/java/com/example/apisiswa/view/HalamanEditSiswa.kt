@@ -22,5 +22,9 @@ fun HalamanEditSiswa (
     modifier: Modifier= Modifier,
     viewModel: EditVM= viewModel(factory = PenyediaViewModel.Factory)
 ){
+    Scaffold (
+        
+    ){
 
+    }
 }
